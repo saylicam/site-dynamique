@@ -1,8 +1,16 @@
 <?php
-$host = 'inductmilyas.mysql.db';      // ✅ ton serveur OVH
-$dbname = 'inductmilyas';             // ✅ ta base de données OVH
-$username = 'inductmilyas';           // ✅ identifiant MySQL OVH
-$password = 'Moustapha6116';   // ⛔ remplace ceci par ton vrai mot de passe MySQL
+// ===========================================
+// 💻 Connexion locale (Laragon/XAMPP)
+$host = 'localhost';
+$dbname = 'site-dynamique';
+$username = 'root';
+$password = '';
+
+// 🌐 Connexion OVH (commentée temporairement)
+// $host = 'inductmilyas.mysql.db';
+// $dbname = 'inductmilyas';
+// $username = 'inductmilyas';
+// $password = 'Moustapha6116'; // ⚠️ Masque ton mot de passe si tu publies ce fichier
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);

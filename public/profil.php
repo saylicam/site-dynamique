@@ -1,8 +1,9 @@
 <?php
+require_once '../controllers/gestionAuthentification.php';
 require_once '../includes/header.php';
 
-// Rediriger si utilisateur non connecté
-if (!isset($_SESSION['utilisateur'])) {
+// Vérifie que l'utilisateur est connecté
+if (!est_connecte()) {
     header('Location: connexion.php');
     exit;
 }

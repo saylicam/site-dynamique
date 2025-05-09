@@ -1,5 +1,9 @@
 <?php
-// Protection si la fonction est déjà déclarée
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+// Pour ajouter dynamiquement la classe "active" au menu
 if (!function_exists('activeClass')) {
     function activeClass(string $page): string {
         return basename($_SERVER['PHP_SELF']) === $page ? 'class="active"' : '';
@@ -24,8 +28,10 @@ if (!function_exists('activeClass')) {
                 <a href="connexion.php">Connexion</a>
             </li>
         <?php else: ?>
-            <li>
-                <a href="profil.php">Bonjour <?= htmlspecialchars($_SESSION['utilisateur']['uti_pseudo']) ?></a>
+            <li <?= activeClass('profil.php') ?>>
+                <a href="profil.php">
+                    Bonjour <?= htmlspecialchars($_SESSION['utilisateur']['uti_pseudo']) ?>
+                </a>
             </li>
             <li>
                 <a href="deconnexion.php">Déconnexion</a>

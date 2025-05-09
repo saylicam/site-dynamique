@@ -1,18 +1,19 @@
 <?php
-session_start(); // Toujours en haut
+session_start();
 
 require_once '../config/database.php';
-require_once '../models/utilisateur.php';
+require_once '../models/Utilisateur.php';
 
+$utilisateurModel = new Utilisateur($pdo);
 $erreur = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'] ?? '';
     $password = $_POST['mot_de_passe'] ?? '';
 
-    $utilisateur = obtenirUtilisateurParEmail($pdo, $email);
+    $utilisateur = $utilisateurModel->trouverParEmail($email);
 
-    if ($utilisateur && isset($utilisateur['uti_motdepasse']) && password_verify($password, $utilisateur['uti_motdepasse'])) {
+    if ($utilisateur && password_verify($password, $utilisateur['uti_motdepasse'])) {
         $_SESSION['utilisateur'] = $utilisateur;
         header('Location: index.php');
         exit;
@@ -30,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <p class="error"><?= htmlspecialchars($erreur) ?></p>
 <?php endif; ?>
 
-<form method="POST" action="">
+<form method="POST">
     <label for="email">Email :</label>
     <input type="email" name="email" id="email" required>
 
@@ -41,3 +42,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </form>
 
 <?php include '../includes/footer.php'; ?>
+

@@ -1,6 +1,6 @@
 <?php
-session_start();
-session_unset(); // Vide toutes les variables de session
-session_destroy(); // Supprime la session
+require_once '../controllers/gestionAuthentification.php';
+
+deconnecter_utilisateur();
 header('Location: index.php');
 exit;
