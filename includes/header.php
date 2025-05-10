@@ -16,8 +16,10 @@ $metaDescription = $metaDescription ?? "Description par défaut";
   <title><?= htmlspecialchars($pageTitre) ?></title>
   <link rel="stylesheet" href="assets/css/style.css">
   <script src="assets/js/form-validation.js" defer></script>
+  <script src="assets/js/app.js" defer></script>
 </head>
 <body>
 
 <?php include 'navigation.php'; ?>
+
 
