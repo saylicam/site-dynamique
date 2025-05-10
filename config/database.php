@@ -10,7 +10,7 @@ $password = '';
 // $host = 'inductmilyas.mysql.db';
 // $dbname = 'inductmilyas';
 // $username = 'inductmilyas';
-// $password = 'Moustapha6116'; // ⚠️ Masque ton mot de passe si tu publies ce fichier
+// $password = 'Moustapha6116'; //
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
