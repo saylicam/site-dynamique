@@ -9,7 +9,7 @@ $password = '';
 // 🌐 Connexion OVH (commentée temporairement)
 // $host = 'inductmilyas.mysql.db';
 // $dbname = 'inductmilyas';
-// $username = 'inductmilyas';
+// $username = 'inductmilyass';
 // $password = 'Moustapha6116'; //
 
 try {
