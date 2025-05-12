@@ -19,6 +19,9 @@ if (!function_exists('activeClass')) {
         <li <?= activeClass('contact.php') ?>>
             <a href="contact.php">Contact</a>
         </li>
+        <li <?= activeClass('carrousel.php') ?>>
+            <a href="carrousel.php">Carrousel</a>
+        </li>
 
         <?php if (!isset($_SESSION['utilisateur'])): ?>
             <li <?= activeClass('inscription.php') ?>>
